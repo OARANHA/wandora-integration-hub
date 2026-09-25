@@ -1,0 +1,24 @@
+services:
+  wandora-integration-hub:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: wandora-integration-hub
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 8080
+    expose:
+      - "8080"
+    volumes:
+      - integration-hub-data:/app/.data
+    networks:
+      - wandora-edge
+
+volumes:
+  integration-hub-data:
+
+networks:
+  wandora-edge:
+    external: true
