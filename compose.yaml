@@ -9,8 +9,30 @@ services:
       NODE_ENV: production
       HOST: 0.0.0.0
       PORT: 8080
+      REGISTRY_DIR: /app/.data/contracts
+      PROFILES_DIR: /app/providers
     expose:
       - "8080"
+    volumes:
+      - integration-hub-data:/app/.data
+    networks:
+      - wandora-edge
+
+  wandora-integration-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: wandora-integration-mcp
+    restart: unless-stopped
+    command: ["node", "src/mcp/server.mjs"]
+    environment:
+      NODE_ENV: production
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8081
+      REGISTRY_DIR: /app/.data/contracts
+      PROFILES_DIR: /app/providers
+    expose:
+      - "8081"
     volumes:
       - integration-hub-data:/app/.data
     networks:
