@@ -8,3 +8,5 @@ coverage/
 .tmp/
 contracts/private/
 secrets/
+
+.data/
