@@ -8,7 +8,12 @@
     "start": "node src/api/server.mjs",
     "test": "node --test",
     "contract:import": "node src/cli/import-openapi.mjs",
-    "contract:search": "node src/cli/search-contract.mjs"
+    "contract:search": "node src/cli/search-contract.mjs",
+    "mcp": "node src/mcp/server.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "zod": "3.25.76"
   },
   "engines": {
     "node": ">=20"
