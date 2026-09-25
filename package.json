@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Provider-neutral contract registry and integration core for Wandora.",
   "scripts": {
+    "start": "node src/api/server.mjs",
     "test": "node --test",
     "contract:import": "node src/cli/import-openapi.mjs",
     "contract:search": "node src/cli/search-contract.mjs"
