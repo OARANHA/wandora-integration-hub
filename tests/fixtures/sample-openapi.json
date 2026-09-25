@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.1",
+  "info": { "title": "Sample ERP", "version": "v1" },
+  "components": {
+    "securitySchemes": {
+      "ApiKey": { "type": "apiKey", "in": "header", "name": "X-Api-Key" }
+    },
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" }
+        }
+      }
+    }
+  },
+  "security": [{ "ApiKey": [] }],
+  "paths": {
+    "/products": {
+      "get": {
+        "operationId": "Products_Search",
+        "summary": "Search products",
+        "tags": ["Products"],
+        "parameters": [
+          { "name": "name", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Product" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "Products_Create",
+        "summary": "Create product",
+        "tags": ["Products"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Product" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "Created" } }
+      }
+    }
+  }
+}
