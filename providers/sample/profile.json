@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "capabilities": {
+    "products.search": {
+      "operationId": "Products_Search",
+      "notes": "Fixture mapping used only for tests and local validation."
+    }
+  }
+}
