@@ -1,0 +1,15 @@
+{
+  "name": "@wandora/integration-hub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Provider-neutral contract registry and integration core for Wandora.",
+  "scripts": {
+    "test": "node --test",
+    "contract:import": "node src/cli/import-openapi.mjs",
+    "contract:search": "node src/cli/search-contract.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
